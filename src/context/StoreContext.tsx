@@ -57,6 +57,7 @@ const StoreContext = createContext<StoreContextType | null>(null);
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Language>('ru');
+  const [isMounted, setIsMounted] = useState(false);
   const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
   const [games, setGames] = useState<GameRequirement[]>(INITIAL_GAMES);
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -130,6 +131,19 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
           setGames(JSON.parse(savedGames));
         } catch {}
       }
+      const savedOrders = localStorage.getItem('cf_orders');
+      if (savedOrders) {
+        try {
+          setOrders(JSON.parse(savedOrders));
+        } catch {}
+      }
+      const savedBuild = localStorage.getItem('cf_build');
+      if (savedBuild) {
+        try {
+          setBuild(JSON.parse(savedBuild));
+        } catch {}
+      }
+      setIsMounted(true);
     }
   }, []);
 
@@ -140,12 +154,36 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Sync cart to localStorage
+  // Sync state to localStorage
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (isMounted && typeof window !== 'undefined') {
       localStorage.setItem('cf_cart', JSON.stringify(cart));
     }
-  }, [cart]);
+  }, [cart, isMounted]);
+
+  useEffect(() => {
+    if (isMounted && typeof window !== 'undefined') {
+      localStorage.setItem('cf_orders', JSON.stringify(orders));
+    }
+  }, [orders, isMounted]);
+
+  useEffect(() => {
+    if (isMounted && typeof window !== 'undefined') {
+      localStorage.setItem('cf_build', JSON.stringify(build));
+    }
+  }, [build, isMounted]);
+
+  useEffect(() => {
+    if (isMounted && typeof window !== 'undefined') {
+      localStorage.setItem('cf_products', JSON.stringify(products));
+    }
+  }, [products, isMounted]);
+
+  useEffect(() => {
+    if (isMounted && typeof window !== 'undefined') {
+      localStorage.setItem('cf_games', JSON.stringify(games));
+    }
+  }, [games, isMounted]);
 
   // Active translations
   const t = translations[lang] || translations.ru;
