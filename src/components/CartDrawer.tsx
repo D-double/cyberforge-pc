@@ -13,6 +13,7 @@ export default function CartDrawer() {
     setIsCartOpen,
     setIsCheckoutOpen,
     cart,
+    cartCount,
     cartTotal,
     removeFromCart,
     updateQuantity,
@@ -37,7 +38,7 @@ export default function CartDrawer() {
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-cyan-400" />
               <h2 className="text-lg font-bold text-white">
-                {t.cart.title} ({cart.length})
+                {t.cart.title} ({cartCount})
               </h2>
             </div>
             <button
