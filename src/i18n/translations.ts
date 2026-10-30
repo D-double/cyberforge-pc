@@ -43,6 +43,7 @@ export const translations = {
       inCart: 'В корзине',
       specs: 'Характеристики',
       noProducts: 'Товары не найдены по вашему запросу',
+      warrantySubtitle: 'Оригинальные комплектующие с официальной гарантией в Узбекистане',
     },
     builder: {
       title: 'Интерактивный Конструктор ПК',
@@ -51,6 +52,8 @@ export const translations = {
       choosePart: 'Выбрать деталь',
       changePart: 'Заменить',
       removePart: 'Удалить',
+      selected: 'Выбрано',
+      select: 'Выбрать',
       powerTdp: 'Расчётное потребление',
       recommendedPsu: 'Рекомендуемый БП',
       totalCost: 'Стоимость сборки',
@@ -226,6 +229,7 @@ export const translations = {
       inCart: 'Savatda bor',
       specs: 'Xususiyatlari',
       noProducts: 'Qidiruv bo\'yicha mahsulot topilmadi',
+      warrantySubtitle: 'O\'zbekistonda rasmiy kafolatli original butlovchi qismlar',
     },
     builder: {
       title: 'Interaktiv PK Konstruktori',
@@ -234,6 +238,8 @@ export const translations = {
       choosePart: 'Qismni tanlash',
       changePart: 'Almashtirish',
       removePart: 'O\'chirish',
+      selected: 'Tanlandi',
+      select: 'Tanlash',
       powerTdp: 'Hisoblangan quvvat iste\'moli',
       recommendedPsu: 'Tavsiya etilgan BP',
       totalCost: 'Yig\'ma narxi',
