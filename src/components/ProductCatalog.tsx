@@ -4,7 +4,7 @@ import React, { useMemo, useState } from 'react';
 import { useStore } from '@/context/StoreContext';
 import { ComponentCategory } from '@/types';
 import ProductCard from './ProductCard';
-import { Search, SlidersHorizontal, ArrowUpDown, Package } from 'lucide-react';
+import { Search, SlidersHorizontal, ArrowUpDown, Package, X } from 'lucide-react';
 
 export default function ProductCatalog() {
   const { t, products } = useStore();
@@ -65,7 +65,7 @@ export default function ProductCatalog() {
             {t.nav.catalog}
           </h2>
           <p className="text-xs md:text-sm text-neutral-400 mt-1">
-            Оригинальные комплектующие с официальной гарантией в Узбекистане
+            {t.catalog.warrantySubtitle}
           </p>
         </div>
 
@@ -77,8 +77,17 @@ export default function ProductCatalog() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={t.catalog.searchPlaceholder}
-            className="w-full pl-9 pr-4 py-2 text-xs rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-cyan-500"
+            className="w-full pl-9 pr-8 py-2 text-xs rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-cyan-500"
           />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white p-0.5 rounded transition-colors"
+              title="Clear search"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
       </div>
 
