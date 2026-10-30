@@ -25,6 +25,7 @@ export default function TelegramCheckoutModal() {
     setIsCheckoutOpen,
     cart,
     cartTotal,
+    clearCart,
     addOrder,
     formatPrice,
   } = useStore();
@@ -63,6 +64,7 @@ export default function TelegramCheckoutModal() {
     });
 
     setCompletedOrder(newOrder);
+    clearCart();
 
     // Fire celebratory confetti!
     confetti({
