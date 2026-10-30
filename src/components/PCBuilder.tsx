@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '@/context/StoreContext';
 import { PCBuild, Product, ComponentCategory } from '@/types';
 import {
@@ -52,6 +52,20 @@ export default function PCBuilder() {
   } = useStore();
 
   const [activeModalSlot, setActiveModalSlot] = useState<SlotConfig | null>(null);
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    if (!activeModalSlot) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveModalSlot(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeModalSlot]);
 
   // Filter products for the active selection modal
   const modalProducts = activeModalSlot
@@ -370,7 +384,7 @@ export default function PCBuilder() {
                         {formatPrice(product.priceUZS)}
                       </span>
                       <button className="mt-1 px-3 py-1 text-xs font-semibold rounded bg-cyan-500 hover:bg-cyan-400 text-neutral-950">
-                        {isCurrent ? 'Выбрано' : 'Выбрать'}
+                        {isCurrent ? t.builder.selected : t.builder.select}
                       </button>
                     </div>
                   </div>
