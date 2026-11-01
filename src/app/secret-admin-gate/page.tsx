@@ -2,18 +2,16 @@
 
 import React, { useState } from 'react';
 import { useStore } from '@/context/StoreContext';
-import { Product, GameRequirement, Order, ComponentCategory } from '@/types';
+import { Product, GameRequirement, ComponentCategory } from '@/types';
 import {
   Lock,
   Unlock,
   Package,
   Gamepad2,
   ShoppingBag,
-  Settings,
   Plus,
   Trash2,
   CheckCircle,
-  Clock,
   Send,
   Eye,
   ArrowLeft,
@@ -23,7 +21,6 @@ import Link from 'next/link';
 export default function HiddenAdminPage() {
   const {
     t,
-    lang,
     formatPrice,
     products,
     setProducts,
@@ -265,7 +262,7 @@ export default function HiddenAdminPage() {
             onClick={() => setActiveTab('games')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
               activeTab === 'games'
-                ? 'bg-purple-600 text-white shadow-md'
+                ? 'bg-purple-600 text-on-accent shadow-md'
                 : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
             }`}
           >
@@ -277,7 +274,7 @@ export default function HiddenAdminPage() {
             onClick={() => setActiveTab('orders')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
               activeTab === 'orders'
-                ? 'bg-emerald-600 text-white shadow-md'
+                ? 'bg-emerald-600 text-on-accent shadow-md'
                 : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
             }`}
           >
@@ -364,7 +361,7 @@ export default function HiddenAdminPage() {
               </div>
               <button
                 onClick={() => setIsAddGameOpen(true)}
-                className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white flex items-center gap-1.5 transition-colors shadow-lg shadow-purple-600/20"
+                className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-on-accent flex items-center gap-1.5 transition-colors shadow-lg shadow-purple-600/20"
               >
                 <Plus className="w-4 h-4" />
                 {t.admin.addGame}
@@ -587,7 +584,7 @@ export default function HiddenAdminPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl font-bold bg-purple-600 hover:bg-purple-500 text-white"
+                  className="px-4 py-2 rounded-xl font-bold bg-purple-600 hover:bg-purple-500 text-on-accent"
                 >
                   Сохранить игру
                 </button>

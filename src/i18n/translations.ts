@@ -12,6 +12,8 @@ export const translations = {
       about: 'О магазине',
       admin: 'Панель',
       cart: 'Корзина',
+      lightTheme: 'Светлая тема',
+      darkTheme: 'Тёмная тема',
     },
     currency: 'сум',
     categories: {
@@ -198,6 +200,8 @@ export const translations = {
       about: 'Do\'kon haqida',
       admin: 'Boshqaruv',
       cart: 'Savat',
+      lightTheme: 'Yorug\' mavzu',
+      darkTheme: 'Qorong\'i mavzu',
     },
     currency: "so'm",
     categories: {

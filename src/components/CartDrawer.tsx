@@ -2,13 +2,12 @@
 
 import React from 'react';
 import { useStore } from '@/context/StoreContext';
-import { X, Trash2, Plus, Minus, ShoppingBag, Send, ArrowRight } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, Send } from 'lucide-react';
 import Image from 'next/image';
 
 export default function CartDrawer() {
   const {
     t,
-    lang,
     isCartOpen,
     setIsCartOpen,
     setIsCheckoutOpen,
@@ -137,7 +136,7 @@ export default function CartDrawer() {
                   setIsCartOpen(false);
                   setIsCheckoutOpen(true);
                 }}
-                className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
+                className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-on-accent transition-all flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
               >
                 <Send className="w-4 h-4" />
                 {t.cart.checkoutTelegramBtn}

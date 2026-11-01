@@ -4,17 +4,7 @@ import React, { useMemo, useState } from 'react';
 import { useStore } from '@/context/StoreContext';
 import { GraphicsPreset, Resolution } from '@/types';
 import { calculateFpsForGame } from '@/utils/fpsCalculator';
-import {
-  Gamepad2,
-  Tv,
-  Gauge,
-  Flame,
-  Search,
-  CheckCircle,
-  HelpCircle,
-  Info,
-  Sliders,
-} from 'lucide-react';
+import { Gamepad2, Tv, Search, Sliders } from 'lucide-react';
 import Image from 'next/image';
 
 export default function FPSCalculatorWidget() {
@@ -149,7 +139,7 @@ export default function FPSCalculatorWidget() {
                 onClick={() => setResolution(res)}
                 className={`py-2 text-xs font-bold rounded-lg transition-all uppercase ${
                   resolution === res
-                    ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20'
+                    ? 'bg-purple-600 text-on-accent shadow-md shadow-purple-600/20'
                     : 'bg-neutral-900 text-neutral-400 hover:text-white hover:bg-neutral-800'
                 }`}
               >

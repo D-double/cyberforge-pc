@@ -41,6 +41,9 @@ export interface Product {
     coolerHeightMM?: number;
     coolerMaxTdp?: number;
     coolerSockets?: string[];
+    coolerTowers?: 1 | 2; // Air coolers: single or twin fin stack
+    isAio?: boolean;
+    radiatorMM?: 240 | 280 | 360;
     psuWattage?: number;
     psuRating?: string; // '80+ Bronze', '80+ Gold'
     storageType?: 'NVMe M.2' | 'SATA SSD' | 'HDD';

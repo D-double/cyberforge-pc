@@ -541,7 +541,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     specs: {
       coolerHeightMM: 155,
       coolerMaxTdp: 220,
-      coolerSockets: ['LGA1700', 'AM4', 'AM5']
+      coolerSockets: ['LGA1700', 'AM4', 'AM5'],
+      coolerTowers: 1
     }
   },
   {
@@ -559,7 +560,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     specs: {
       coolerHeightMM: 155,
       coolerMaxTdp: 265,
-      coolerSockets: ['LGA1700', 'AM4', 'AM5']
+      coolerSockets: ['LGA1700', 'AM4', 'AM5'],
+      coolerTowers: 2
     }
   },
   {
@@ -578,7 +580,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       coolerHeightMM: 55, // Pump height
       coolerMaxTdp: 350,
       coolerSockets: ['LGA1700', 'AM4', 'AM5'],
-      isAio: true
+      isAio: true,
+      radiatorMM: 360
     }
   }
 ];

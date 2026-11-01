@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Text placed on saturated accent fills stays white in both themes. */
+  --color-on-accent: #fff;
+}
+
+:root {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * The UI is authored dark-first with the neutral scale, white and black.
+ * The light theme remaps those tokens (and deepens accent text/tints) instead of
+ * duplicating every utility with a variant.
+ */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-black: oklch(96.5% 0.004 250);
+  --color-white: oklch(18% 0 0);
+  --color-neutral-50: oklch(14.5% 0 0);
+  --color-neutral-100: oklch(20% 0 0);
+  --color-neutral-200: oklch(27% 0 0);
+  --color-neutral-300: oklch(35% 0 0);
+  --color-neutral-400: oklch(45% 0 0);
+  --color-neutral-500: oklch(52% 0 0);
+  --color-neutral-600: oklch(62% 0 0);
+  --color-neutral-700: oklch(85% 0 0);
+  --color-neutral-800: oklch(91% 0 0);
+  --color-neutral-900: oklch(100% 0 0);
+  --color-neutral-950: oklch(98.3% 0.002 250);
+
+  --color-cyan-300: oklch(52% 0.105 223.128);
+  --color-cyan-400: oklch(60.9% 0.126 221.723);
+  --color-cyan-800: oklch(86.5% 0.08 205.041);
+  --color-cyan-900: oklch(95.6% 0.045 203.388);
+  --color-cyan-950: oklch(96.5% 0.03 203);
+
+  --color-emerald-300: oklch(50.8% 0.118 165.612);
+  --color-emerald-400: oklch(59.6% 0.145 163.225);
+  --color-emerald-800: oklch(87% 0.093 164.15);
+  --color-emerald-900: oklch(95% 0.052 163.051);
+  --color-emerald-950: oklch(96.5% 0.035 165);
+
+  --color-amber-300: oklch(55.5% 0.163 48.998);
+  --color-amber-400: oklch(66.6% 0.179 58.318);
+  --color-amber-800: oklch(90% 0.12 95.746);
+  --color-amber-900: oklch(96.2% 0.059 95.617);
+  --color-amber-950: oklch(97.5% 0.04 95);
+
+  --color-purple-300: oklch(49.6% 0.265 301.924);
+  --color-purple-400: oklch(55.8% 0.288 302.321);
+  --color-purple-800: oklch(88% 0.063 306.703);
+  --color-purple-900: oklch(94.6% 0.033 307.174);
+  --color-purple-950: oklch(96.5% 0.025 307);
+
+  --color-sky-400: oklch(58.8% 0.158 241.966);
+  --color-sky-950: oklch(96% 0.026 236.824);
+
+  --color-red-300: oklch(50.5% 0.213 27.518);
+  --color-red-400: oklch(57.7% 0.245 27.325);
+  --color-red-800: oklch(85% 0.062 18.334);
+  --color-red-900: oklch(93.6% 0.032 17.717);
+  --color-red-950: oklch(96% 0.02 17.38);
+}
+
+/* Dark text on bright accent buttons and badges keeps its contrast in the light theme. */
+[data-theme='light'] .text-neutral-950 {
+  color: oklch(14.5% 0 0);
 }

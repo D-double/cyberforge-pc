@@ -3,24 +3,12 @@
 import React, { useState } from 'react';
 import { useStore } from '@/context/StoreContext';
 import { Order } from '@/types';
-import {
-  X,
-  Send,
-  CheckCircle2,
-  CreditCard,
-  Building,
-  Phone,
-  User,
-  ShieldCheck,
-  ExternalLink,
-  QrCode,
-} from 'lucide-react';
+import { X, Send, CheckCircle2, Building, Phone, User, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function TelegramCheckoutModal() {
   const {
     t,
-    lang,
     isCheckoutOpen,
     setIsCheckoutOpen,
     cart,
@@ -145,7 +133,7 @@ export default function TelegramCheckoutModal() {
                 href={`https://t.me/CyberForgeSupportBot?start=${completedOrder.orderNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
+                className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-on-accent transition-all flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
               >
                 <Send className="w-4 h-4" />
                 {t.checkout.openTelegramBot}
@@ -301,7 +289,7 @@ export default function TelegramCheckoutModal() {
 
               <button
                 type="submit"
-                className="py-2.5 px-5 rounded-xl font-bold text-xs bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white transition-all flex items-center gap-2 shadow-lg shadow-sky-500/20"
+                className="py-2.5 px-5 rounded-xl font-bold text-xs bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-on-accent transition-all flex items-center gap-2 shadow-lg shadow-sky-500/20"
               >
                 <Send className="w-3.5 h-3.5" />
                 {t.checkout.submitOrder}

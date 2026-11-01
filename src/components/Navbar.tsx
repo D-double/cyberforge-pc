@@ -2,19 +2,24 @@
 
 import React from 'react';
 import { useStore } from '@/context/StoreContext';
+import { useRestoreTheme, useTheme } from '@/hooks/useTheme';
 import {
   Cpu,
   Layers,
   Gamepad2,
   Package,
   ShoppingCart,
-  Globe,
   Lock,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
   const { lang, setLang, t, cartCount, setIsCartOpen } = useStore();
+  const { theme, toggleTheme } = useTheme();
+  useRestoreTheme();
+  const themeLabel = theme === 'dark' ? t.nav.lightTheme : t.nav.darkTheme;
 
   return (
     <header className="sticky top-0 z-40 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
@@ -84,6 +89,15 @@ export default function Navbar() {
               UZ
             </button>
           </div>
+
+          <button
+            onClick={toggleTheme}
+            title={themeLabel}
+            aria-label={themeLabel}
+            className="p-2 rounded-xl bg-neutral-900 border border-neutral-800 text-amber-400 hover:border-amber-400/50 transition-all"
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
 
           {/* Cart Trigger */}
           <button
